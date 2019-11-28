@@ -1,0 +1,22 @@
+{
+  "name": "express-server",
+  "version": "1.0.0",
+  "description": "customizable server utility built on top of express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/3key-utils/node-express-server.git"
+  },
+  "author": "3keyutils",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/3key-utils/node-express-server/issues"
+  },
+  "homepage": "https://github.com/3key-utils/node-express-server#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
