@@ -4,9 +4,6 @@ const port = 3000
 
 class Server {
 
-    app;
-    port;
-
     constructor() {
         this.app = new express();
         this.port = 5000;
@@ -35,7 +32,7 @@ class Server {
     }
 
     serve(port, callBack) {
-        app.listen(port || this.port, callBack);
+        this.app.listen(port || this.port, callBack);
     }
 
 }
