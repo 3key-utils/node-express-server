@@ -31,8 +31,21 @@ class Server {
 
     }
 
+    health() {
+        this.app.get('/health', (req, res, next) => {
+            res.status(200)
+                .send('OK');
+            return next();
+        });
+    }
+
     serve(port, callBack) {
-        this.app.listen(port || this.port, callBack);
+        this.health();
+        this.server = this.app.listen(port || this.port, callBack);
+    }
+
+    kill() {
+        this.server.close();
     }
 
 }
