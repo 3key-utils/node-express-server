@@ -11,6 +11,13 @@ describe('Server tests', function() {
   context('Server', function() {
 
     it('should be able start with no issues', () => {
+      server.route({
+        action: 'get',
+        path: '/path',
+        handler: (req, res, next) => {
+          res.send('/path');
+        }
+      });
       server.serve(PORT, () => {});
     });
 
@@ -20,6 +27,14 @@ describe('Server tests', function() {
             expect(body).to.equal('OK');
         });
     });
+
+
+    it('check if added route() is working', () => {
+      request.get(`http://127.0.0.1:${PORT}/path`, (err, res, body) => {
+          expect(res.statusCode).to.equal(200);
+          expect(body).to.equal('/path');
+      });
+  });
 
   });
 

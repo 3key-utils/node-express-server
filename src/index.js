@@ -10,32 +10,33 @@ class Server {
     }
 
     middleware(middleware = []) {
-        middleware.forEach( (m) => {
-            this.app.use(m);
-        } );
+        middleware.forEach( m => this.app.use(m) );
     }
 
     router(router) {
-
+        this.app.use(router.path, router.handler);
     }
 
     routers(routers) {
-        
+        routers.forEach( router => this.router(router) );
     }
 
     route(route) {
-
+        this.app[route.action](route.path, route.handler);
     }
 
     routes(routes) {
-
+        routes.forEach( route => this.route(route) );
     }
 
     health() {
-        this.app.get('/health', (req, res, next) => {
-            res.status(200)
-                .send('OK');
-            return next();
+        this.route({
+            action: 'get',
+            path: '/health',
+            handler: (req, res, next) => {
+                res.status(200).send('OK');
+                return next();
+            }
         });
     }
 
