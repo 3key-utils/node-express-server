@@ -1,12 +1,12 @@
 # Node REST Server
 Now write your REST APIs with ease.
 
-## Install 
+### Installation 
 ```
 npm i --save node-rest-server
 ```
 
-## Write first REST API
+### Write first REST API
 
 ```
 const Server = require('node-rest-server');
@@ -21,3 +21,25 @@ server.routes([{
 }]);
 server.start();
 ```
+
+### Load Routes from a different file
+
+```
+```
+
+### Register middleware
+
+```
+```
+
+### Registering a Router
+
+```
+```
+
+### Registering Multiple Routers
+
+```
+```
+
+## Contribution
